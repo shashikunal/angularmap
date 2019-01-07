@@ -1,0 +1,39 @@
+  
+<h2 mat-dialog-title>Google map</h2>
+<mat-dialog-content>
+  <p>would do you like to  save? or cancel </p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>cancel</button>
+  <button mat-raised-button (click)="save()">save</button>
+</mat-dialog-actions>
+<div class="container-fluid">
+
+  <div class="row">
+
+  <div class="form-group">
+    <textarea name="" id="" cols="30" rows="10">
+      {{place}}
+    </textarea>
+  </div>
+
+
+    <div class="col-md-12">
+      <h2>Angular google maps</h2>
+      <div class="form-group">
+      <label for="place">search Google place</label>
+      <input 
+    
+      type="text" class="form-control" id="place" #search [formControl]="searchControl" autocomplete="off" autocapitalize="off" spellcheck="off">
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" style="height: 200px;">
+       <agm-marker *ngFor="let latlong of latlongs" [latitude]="latlong.latitude"[longitude]="latlong.longitude"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+</div>
+
